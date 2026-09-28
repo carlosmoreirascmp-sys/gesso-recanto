@@ -103,28 +103,29 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 11px;
+      flex: 1;
+      min-width: 0;
+      gap: 14px;
       color: var(--ink);
       text-decoration: none;
-      font-size: 1rem;
-      font-weight: 800;
-      letter-spacing: -.02em;
     }
-    .brand-mark {
-      display: grid;
-      width: 42px;
-      height: 46px;
-      place-items: center;
-      color: white;
-      background: linear-gradient(145deg, var(--blue), var(--ink));
-      clip-path: polygon(10% 0, 90% 0, 90% 72%, 50% 100%, 10% 72%);
-      font-size: .82rem;
-      letter-spacing: -.06em;
+    .brand-logo {
+      display: block;
+      width: clamp(180px, 20vw, 242px);
+      height: auto;
+      max-height: 62px;
+      object-fit: contain;
     }
-    .header-proof {
-      margin-right: auto;
-      color: var(--muted);
-      font-size: .875rem;
+    .brand-specialty {
+      max-width: 24ch;
+      border-left: 1px solid #ccd7e2;
+      padding-left: 14px;
+      color: var(--ink);
+      font-size: .75rem;
+      font-weight: 850;
+      letter-spacing: .045em;
+      line-height: 1.35;
+      text-transform: uppercase;
     }
 
     .btn {
@@ -188,12 +189,10 @@
       background: var(--accent);
     }
     .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.12fr) minmax(340px, .88fr);
-      gap: clamp(44px, 7vw, 88px);
-      align-items: center;
+      display: block;
       padding-block: clamp(64px, 8vw, 105px);
     }
+    .hero-grid > div { max-width: 780px; }
     .eyebrow {
       display: inline-flex;
       align-items: center;
@@ -388,8 +387,10 @@
     }
     .proof-card:nth-child(1) { grid-column: span 7; min-height: 390px; }
     .proof-card:nth-child(2) { grid-column: span 5; min-height: 390px; }
-    .proof-card:nth-child(n+3) { grid-column: span 4; }
+    .proof-card:nth-child(n+3) { grid-column: span 3; }
     .proof-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+    .team-work-card img { object-position: 76% 78%; }
+    .product-range-card img { object-position: center top; }
     .proof-card:hover img { transform: scale(1.025); }
     .proof-card figcaption {
       position: absolute;
@@ -402,6 +403,16 @@
 
     .video-section { background: #dfe7ef; }
     .video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .delivery-showcase {
+      color: white;
+      background:
+        radial-gradient(circle at 82% 12%, rgba(12,99,206,.28), transparent 30%),
+        #061524;
+    }
+    .delivery-showcase .section-head { max-width: 780px; }
+    .delivery-showcase .section-head p { color: #c4d2df; }
+    .delivery-showcase .eyebrow { color: #b9d8ff; }
+    .delivery-video-grid { gap: clamp(12px, 2.4vw, 24px); }
     .delivery-section { background: #e8eef5; }
     .delivery-intro {
       display: grid;
@@ -549,10 +560,27 @@
     .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .footer-inner a { color: white; }
 
-    .mobile-bar { display: none; }
+    .whatsapp-float {
+      position: fixed;
+      z-index: 40;
+      right: 24px;
+      bottom: 24px;
+      display: grid;
+      width: 66px;
+      height: 66px;
+      place-items: center;
+      border: 3px solid rgba(255,255,255,.95);
+      border-radius: 50%;
+      color: white;
+      background: #25d366;
+      box-shadow: 0 12px 32px rgba(3,15,28,.3);
+      text-decoration: none;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .whatsapp-float:hover { transform: translateY(-3px) scale(1.03); background: #1ebe5d; box-shadow: 0 16px 38px rgba(3,15,28,.36); }
+    .whatsapp-float svg { width: 36px; height: 36px; }
 
     @media (max-width: 860px) {
-      .header-proof { display: none; }
       .hero-grid, .steps-grid, .faq-grid, .location-grid, .delivery-intro { grid-template-columns: 1fr; }
       .hero-grid { gap: 46px; }
       .faq-intro { position: static; }
@@ -565,11 +593,12 @@
       .wrap { width: min(calc(100% - 28px), var(--max)); }
       .site-header .btn { display: none; }
       .header-inner { min-height: 68px; }
-      .brand-mark { width: 38px; height: 42px; }
+      .brand { gap: 8px; }
+      .brand-logo { width: 148px; max-height: 54px; }
+      .brand-specialty { max-width: 18ch; padding-left: 8px; font-size: .56rem; letter-spacing: .025em; }
       .hero::before { width: 4px; }
       .location-bar-inner { min-height: 44px; }
-      .top-location-link { max-width: 265px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-      .location-bar-note { display: none; }
+      .top-location-link { max-width: 280px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
       .hero-image { object-position: 50% 48%; }
       .hero::after { background: linear-gradient(90deg, rgba(3,15,28,.97), rgba(3,15,28,.82)), linear-gradient(0deg, rgba(3,15,28,.8), transparent 50%); }
       .hero-grid { grid-template-columns: minmax(0, 1fr); padding-block: 48px 58px; }
@@ -582,28 +611,20 @@
       .trust-grid { grid-template-columns: 1fr; padding-block: 10px; }
       .trust-item { min-height: auto; padding: 18px 0; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.14); }
       .trust-item:last-child { border-bottom: 0; }
-      .proof-grid, .video-grid { grid-template-columns: 1fr; }
+      .proof-grid, .video-grid:not(.delivery-video-grid) { grid-template-columns: 1fr; }
       .proof-card:nth-child(n) { grid-column: auto; min-height: 250px; }
       .variety-card { min-height: 260px; }
+      .delivery-video-grid { gap: 10px; }
+      .delivery-video-card .video-caption { padding: 13px 12px; font-size: .78rem; }
+      .delivery-video-card .video-caption strong { font-size: .9rem; }
       .video-placeholder { min-height: 260px; }
       .map-tiles { min-height: 340px; grid-template-rows: repeat(2, 170px); }
       .step { grid-template-columns: 48px 1fr; padding: 19px; }
       .step-number { width: 48px; height: 48px; }
       .footer-inner { align-items: flex-start; flex-direction: column; }
-      footer { padding-bottom: 104px; }
-      .mobile-bar {
-        position: fixed;
-        z-index: 30;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: block;
-        padding: 10px 14px max(10px, env(safe-area-inset-bottom));
-        border-top: 1px solid #cbd7e3;
-        background: rgba(255,255,255,.97);
-        backdrop-filter: blur(12px);
-      }
-      .mobile-bar .btn { width: 100%; min-height: 54px; }
+      footer { padding-bottom: 86px; }
+      .whatsapp-float { right: 15px; bottom: max(15px, env(safe-area-inset-bottom)); width: 60px; height: 60px; }
+      .whatsapp-float svg { width: 32px; height: 32px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -616,17 +637,15 @@
   <header class="site-header">
     <div class="location-bar">
       <div class="wrap location-bar-inner">
-        <a class="top-location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Bruno%20Altafim%2035%20Ferraz%20de%20Vasconcelos%20SP" target="_blank" rel="noopener">Rua Bruno Altafim, 35 • Ferraz de Vasconcelos — SP</a>
-        <span class="location-bar-note">Loja física • Zona Leste e São Paulo</span>
+        <a class="top-location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Bruno%20Altafim%2035%20Ferraz%20de%20Vasconcelos%20SP" target="_blank" rel="noopener">Ferraz de Vasconcelos — Zona Leste e SP</a>
         <a class="top-route-link" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Bruno%20Altafim%2035%20Ferraz%20de%20Vasconcelos%20SP" target="_blank" rel="noopener">Ver rota</a>
       </div>
     </div>
     <div class="wrap header-inner">
-      <a class="brand" href="#inicio" aria-label="Gesso Recanto, início">
-        <span class="brand-mark" aria-hidden="true">GR</span>
-        <span>Gesso Recanto</span>
+      <a class="brand" href="#inicio" aria-label="Gesso Recanto — gessos em qualquer modelo com entrega própria">
+        <img class="brand-logo" src="assets/logo-gesso-recanto.webp" alt="Gesso Recanto" width="720" height="240">
+        <span class="brand-specialty">Gessos em qualquer modelo<br>com entrega própria</span>
       </a>
-      <span class="header-proof">14 anos • pronta entrega • logística própria</span>
       <a class="btn" href="#" data-whatsapp data-message="geral" data-location="header" target="_blank" rel="noopener">Pedir orçamento</a>
     </div>
   </header>
@@ -637,7 +656,7 @@
       <div class="wrap hero-grid">
         <div>
           <p class="eyebrow">Gesso para obra • todos os tipos de gesso</p>
-          <h1>Gesso <span class="highlight">no peso</span> e sob medida para sua obra.</h1>
+          <h1>Gesso no peso e sob medida para sua obra.</h1>
           <p class="lead">Placas e todos os tipos de gesso, no peso ou sob medida, à pronta entrega. Informe o pedido e consulte a entrega com logística própria da Gesso Recanto.</p>
           <div class="hero-actions">
             <a class="btn btn-large" href="#" data-whatsapp data-message="geral" data-location="hero" target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
@@ -650,21 +669,6 @@
           </ul>
         </div>
 
-        <aside class="quote-card" aria-labelledby="cotacao-titulo">
-          <h2 id="cotacao-titulo">O que sua obra precisa?</h2>
-          <p>A equipe confirma produto, medidas e entrega. Para agilizar:</p>
-          <ol class="order-list">
-            <li>Placa ou tipo de gesso</li>
-            <li>Peso, quantidade ou medidas</li>
-            <li>CEP da obra ou retirada na loja</li>
-          </ol>
-          <div class="choice-grid">
-            <a class="choice" href="#" data-whatsapp data-message="placas" data-location="hero_placas" target="_blank" rel="noopener">Quero cotar placas <span aria-hidden="true">→</span></a>
-            <a class="choice" href="#" data-whatsapp data-message="peso" data-location="hero_peso" target="_blank" rel="noopener">Quero gesso no peso <span aria-hidden="true">→</span></a>
-            <a class="choice" href="#" data-whatsapp data-message="medida" data-location="hero_medida" target="_blank" rel="noopener">Quero gesso sob medida <span aria-hidden="true">→</span></a>
-          </div>
-          <p class="privacy-note">A conversa continua no WhatsApp oficial: (11) 98496-5242.</p>
-        </aside>
       </div>
     </section>
 
@@ -684,51 +688,49 @@
         <div class="section-head">
           <p class="eyebrow">Presença comercial real</p>
           <h2>Loja, estoque, equipe e logística de verdade.</h2>
-          <p>As imagens são da Gesso Recanto: placas e gesso à pronta entrega, operação própria e trabalho executado.</p>
+          <p>Fotos da loja e da operação da Gesso Recanto, além de referências de aplicação e acabamento em gesso.</p>
         </div>
         <div class="proof-grid">
           <figure class="proof-card">
-            <img src="assets/estoque-placas.webp" alt="Estoque de placas da Gesso Recanto">
-            <figcaption><strong>Placas à pronta entrega</strong><span>Estoque próprio para atender pedidos de obra.</span></figcaption>
+            <img src="assets/variedade-gesso-estoque.webp" alt="Variedade de placas, sacos e produtos de gesso no estoque da Gesso Recanto" loading="eager" decoding="async">
+            <figcaption><strong>Variedade disponível na loja</strong><span>Placas, sacos e opções para diferentes etapas da obra.</span></figcaption>
           </figure>
           <figure class="proof-card">
-            <img src="assets/logistica-propria.webp" alt="Operação logística da Gesso Recanto">
+            <img src="assets/logistica-propria.webp" alt="Operação logística da Gesso Recanto" loading="eager" decoding="async">
             <figcaption><strong>Logística própria</strong><span>Estrutura preparada para separar e movimentar seu pedido.</span></figcaption>
           </figure>
           <figure class="proof-card">
-            <img src="assets/fachada-gesso-recanto.webp" alt="Fachada da loja Gesso Recanto em Ferraz de Vasconcelos">
+            <img src="assets/fachada-gesso-recanto.webp" alt="Fachada da loja Gesso Recanto em Ferraz de Vasconcelos" loading="eager" decoding="async">
             <figcaption><strong>Loja física em Ferraz</strong><span>Rua Bruno Altafim, 35 — Sítio Paredão.</span></figcaption>
           </figure>
-          <figure class="proof-card">
-            <img src="assets/equipe-obra.webp" alt="Equipe da Gesso Recanto trabalhando">
-            <figcaption><strong>Equipe presente na operação</strong><span>Atendimento direto para entender o seu pedido.</span></figcaption>
+          <figure class="proof-card team-work-card">
+            <img src="assets/obra-acabamento.webp" alt="Profissional trabalhando em acabamento de gesso na obra" loading="eager" decoding="async">
+            <figcaption><strong>Equipe presente na operação</strong><span>Trabalho em obra e atendimento direto para entender o pedido.</span></figcaption>
+          </figure>
+          <figure class="proof-card product-range-card">
+            <img src="assets/todos-tipos-gesso.webp" alt="Mostruário com diferentes modelos e acabamentos em gesso" loading="eager" decoding="async">
+            <figcaption><strong>Todos os tipos de gesso</strong><span>Opções para diferentes etapas e acabamentos da obra.</span></figcaption>
           </figure>
           <figure class="proof-card">
-            <img src="assets/aplicacao-gesso.webp" alt="Aplicação de gesso em acabamento">
-            <figcaption><strong>Todos os tipos de gesso</strong><span>Opções para diferentes etapas e acabamentos da obra.</span></figcaption>
+            <!-- Foto de referência: apryan widodo / Unsplash, uso permitido pela Unsplash License. -->
+            <img src="assets/acabamento-gesso-unsplash.webp" alt="Referência de teto decorado com molduras e iluminação embutida" loading="eager" decoding="async">
+            <figcaption><strong>Acabamento que valoriza o ambiente</strong><span>Referência de teto em gesso com detalhes e iluminação.</span></figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <section class="section delivery-section" id="entrega">
+    <section class="section delivery-showcase" id="entrega">
       <div class="wrap">
-        <div class="delivery-intro">
-          <div class="section-head">
-            <p class="eyebrow">Variedade e entrega própria</p>
-            <h2>Qualquer tipo de gesso para sua obra, até você!</h2>
-            <p>Estoque com variedade, pronta entrega e logística própria para levar o pedido até a obra. Envie o produto, a quantidade e o CEP no WhatsApp.</p>
-            <a class="btn btn-large" href="#" data-whatsapp data-message="geral" data-location="delivery_intro" target="_blank" rel="noopener">Consultar produto e entrega</a>
-          </div>
-          <figure class="variety-card">
-            <img src="assets/variedade-gesso-estoque.png" alt="Variedade de placas e produtos de gesso no estoque da Gesso Recanto">
-            <figcaption><strong>Variedade disponível na loja</strong><span>Placas, sacos e opções para diferentes etapas da obra.</span></figcaption>
-          </figure>
+        <div class="section-head">
+          <p class="eyebrow">Logística própria em movimento</p>
+          <h2>Veja de perto. Aguardamos seu pedido:</h2>
+          <p>Do carregamento à saída para entrega, a estrutura da Gesso Recanto está pronta para atender sua obra.</p>
         </div>
-        <div class="video-grid" aria-label="Vídeos da logística própria da Gesso Recanto">
+        <div class="video-grid delivery-video-grid" aria-label="Vídeos da logística própria da Gesso Recanto">
           <article class="video-card delivery-video-card">
             <div class="video-crop">
-              <video data-clean-video autoplay muted loop playsinline preload="auto" aria-label="Caminhão da Gesso Recanto carregado para entrega">
+              <video data-clean-video autoplay muted loop playsinline preload="metadata" poster="assets/logistica-propria.webp" aria-label="Caminhão da Gesso Recanto carregado para entrega">
                 <source src="assets/entrega-caminhao-1.mp4" type="video/mp4">
               </video>
             </div>
@@ -736,12 +738,29 @@
           </article>
           <article class="video-card delivery-video-card">
             <div class="video-crop">
-              <video data-clean-video autoplay muted loop playsinline preload="auto" aria-label="Veículo de entrega da Gesso Recanto com placas de gesso">
+              <video data-clean-video autoplay muted loop playsinline preload="metadata" poster="assets/estoque-placas.webp" aria-label="Veículo de entrega da Gesso Recanto com placas de gesso">
                 <source src="assets/entrega-caminhao-2.mp4" type="video/mp4">
               </video>
             </div>
             <div class="video-caption"><strong>Seu material a caminho</strong><span>Estrutura própria para movimentar os produtos do pedido.</span></div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section delivery-section" aria-labelledby="entrega-titulo">
+      <div class="wrap">
+        <div class="delivery-intro">
+          <div class="section-head">
+            <p class="eyebrow">Variedade e entrega própria</p>
+            <h2 id="entrega-titulo">Qualquer tipo de gesso para sua obra, até você!</h2>
+            <p>Estoque com variedade, pronta entrega e logística própria para levar o pedido até a obra. Envie o produto, a quantidade e o CEP no WhatsApp.</p>
+            <a class="btn btn-large" href="#" data-whatsapp data-message="geral" data-location="delivery_intro" target="_blank" rel="noopener">Consultar produto e entrega</a>
+          </div>
+          <figure class="variety-card">
+            <img src="assets/estoque-placas.webp" alt="Placas de gesso à pronta entrega no estoque da Gesso Recanto" loading="eager" decoding="async">
+            <figcaption><strong>Placas à pronta entrega</strong><span>Estoque próprio para atender pedidos de obra.</span></figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -799,60 +818,6 @@
       </div>
     </section>
 
-    <section class="section video-section" id="videos">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Produtos e estoque</p>
-          <h2>Veja os produtos de perto.</h2>
-          <p>Conheça parte da estrutura e dos materiais disponíveis antes de fazer seu pedido.</p>
-        </div>
-        <div class="video-grid">
-          <div class="video-card">
-            <video controls playsinline preload="metadata" poster="assets/estoque-placas.webp">
-              <source src="assets/produtos-de-perto.mp4" type="video/mp4">
-              Seu navegador não suporta a reprodução deste vídeo.
-            </video>
-            <div class="video-caption"><strong>Estoque e produtos Gesso Recanto</strong><span>Imagens reais da operação.</span></div>
-          </div>
-          <div class="video-placeholder" aria-label="Espaço reservado para o segundo vídeo">
-            <div>
-              <span class="placeholder-icon" aria-hidden="true">▶</span>
-              <strong>Segundo vídeo</strong>
-              <span>Espaço reservado para o próximo conteúdo.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap steps-grid">
-        <div class="steps-copy">
-          <p class="eyebrow">Como pedir o orçamento</p>
-          <h2>Três passos. Tudo pelo WhatsApp.</h2>
-          <p>A página elimina etapas: você já chega no atendimento dizendo o que quer comprar.</p>
-          <div class="message-box">
-            <strong>Dica para ser atendido com mais precisão</strong>
-            Se tiver uma lista, desenho ou foto com medidas, envie junto na conversa.
-          </div>
-        </div>
-        <div class="steps-panel">
-          <article class="step">
-            <span class="step-number">01</span>
-            <div><h3>Escolha o produto</h3><p>Placas, gesso no peso ou sob medida.</p></div>
-          </article>
-          <article class="step">
-            <span class="step-number">02</span>
-            <div><h3>Complete a mensagem</h3><p>Informe peso, quantidade, medidas e o CEP da obra.</p></div>
-          </article>
-          <article class="step">
-            <span class="step-number">03</span>
-            <div><h3>Receba a cotação</h3><p>A equipe confirma pronta entrega, logística e condições diretamente com você.</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="section section-white" id="duvidas">
       <div class="wrap faq-grid">
         <div class="faq-intro section-head">
@@ -904,9 +869,9 @@
     </div>
   </footer>
 
-  <div class="mobile-bar">
-    <a class="btn" href="#" data-whatsapp data-message="geral" data-location="mobile_sticky" target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
-  </div>
+  <a class="whatsapp-float" href="#" data-whatsapp data-message="geral" data-location="whatsapp_float" target="_blank" rel="noopener" aria-label="Pedir orçamento no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+  </a>
 
   <script>
     (function () {
