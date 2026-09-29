@@ -716,12 +716,23 @@
     .video-crop.gesso-delivery-video { aspect-ratio: 9 / 16; max-height: 580px; }
     .video-crop.gesso-stock-video::after, .video-crop.gesso-delivery-video::after { display: none; }
     .delivery-video-card .video-crop video { height: 100%; object-fit: contain; transform: none; }
+    .variety-showcase { background: #e8eef5; }
+    .variety-showcase-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 310px); gap: clamp(28px, 7vw, 90px); align-items: center; }
+    .variety-showcase .section-head { margin: 0; }
+    .variety-showcase .section-head p { max-width: 620px; }
+    .variety-showcase .btn { margin-top: 24px; }
+    .variety-showcase-video { width: 100%; margin: 0; overflow: hidden; border-radius: var(--radius); background: #07192d; box-shadow: var(--shadow); }
+    .variety-showcase-video video { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; }
+    .variety-showcase-video figcaption { padding: 13px 16px; color: #e8f0f8; font-size: .88rem; }
     @media (max-width: 640px) {
       .hero-image { object-position: 60% 20%; }
       .hero::after { background: linear-gradient(90deg, rgba(3,15,28,.87), rgba(3,15,28,.74)), linear-gradient(0deg, rgba(3,15,28,.55), transparent 55%); }
       .delivery-video-grid { grid-template-columns: 1fr; gap: 20px; }
       .delivery-video-card .video-caption { padding: 18px; font-size: 1rem; }
       .delivery-video-card .video-caption strong { font-size: 1.1rem; }
+      .variety-showcase-inner { grid-template-columns: 1fr; gap: 24px; }
+      .variety-showcase-video { max-width: 320px; margin: 0 auto; }
+      .variety-showcase .btn { width: 100%; }
     }
   </style>
 </head>
@@ -774,6 +785,23 @@
       </div>
     </section>
 
+    <section class="section variety-showcase" aria-labelledby="variety-showcase-title">
+      <div class="wrap variety-showcase-inner">
+        <div class="section-head">
+          <p class="eyebrow">Variedade de gessos à vista</p>
+          <h2 id="variety-showcase-title">Precisa de peças de gesso para terminar a obra?</h2>
+          <p>Veja as opções no estoque e mande o que precisa, a quantidade e o CEP. A gente confere disponibilidade, preço e entrega pelo WhatsApp.</p>
+          <a class="btn btn-large" href="#" data-whatsapp data-message="geral" data-location="variety_video" target="_blank" rel="noopener">Consultar opções de gesso</a>
+        </div>
+        <figure class="variety-showcase-video">
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/variedades-gesso-estoque.webp" aria-label="Variedade de peças de gesso nas prateleiras do estoque">
+            <source src="assets/variedades-gesso-estoque.mp4" type="video/mp4">
+          </video>
+          <figcaption>Peças de gesso no estoque da Gesso Recanto.</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section class="section proof-section" id="estrutura">
       <div class="wrap">
         <div class="section-head">
@@ -821,11 +849,11 @@
           </article>
           <article class="video-card delivery-video-card">
             <div class="video-crop gesso-delivery-video">
-              <video autoplay muted loop playsinline controls preload="metadata" poster="assets/entrega-placas-gesso.webp" aria-label="Caminhão da Gesso Recanto com placas de gesso pronto para entrega">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="assets/entrega-placas-gesso.webp" aria-label="Caminhão da Gesso Recanto carregado com Plaquinha 60x60 para entrega">
                 <source src="assets/entrega-placas-gesso.mp4" type="video/mp4">
               </video>
             </div>
-            <div class="video-caption"><strong>Seu material a caminho</strong><span>Placas de gesso no caminhão, prontas para seguir até a obra.</span></div>
+            <div class="video-caption"><strong>Plaquinha 60x60</strong><span>Plaquinhas de gesso no caminhão, prontas para seguir até a obra.</span></div>
           </article>
         </div>
       </div>
