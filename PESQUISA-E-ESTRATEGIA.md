@@ -92,3 +92,10 @@ A página usa uma linguagem de balcão de obra: azul profundo, azul técnico e a
 - Medir taxa de clique no WhatsApp por campanha, palavra-chave, dispositivo e intenção.
 - Depois de volume suficiente, testar primeiro: headline exata versus “Compre gesso no peso e sob medida”; prova social perto do CTA versus na faixa inferior; CTA “Pedir orçamento” versus “Consultar preço e entrega”.
 - A qualidade final deve ser acompanhada no processo comercial: lead válido, orçamento enviado e venda fechada.
+
+## Atualização factual validada pelo cliente — 29/09/2026
+
+- A Gesso Recanto possui fábrica própria; a comunicação correta é da fábrica diretamente para a obra.
+- O gesso vendido no peso tem pedido mínimo de 40 kg.
+- O cliente forneceu uma foto real dos sacos de gesso de 40 kg, além de vídeos atuais de fabricação e entrega.
+- A página foi ajustada para deixar o mínimo de 40 kg explícito antes do clique e usar os novos ativos como prova operacional, reduzindo dúvidas e contatos fora do perfil de compra.
