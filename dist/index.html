@@ -83,7 +83,7 @@
       color: white;
       background-image:
         linear-gradient(90deg, rgba(3, 18, 37, .94) 0%, rgba(5, 44, 83, .87) 52%, rgba(6, 58, 116, .78) 100%),
-        url("assets/fachada-gesso-recanto.webp");
+        url("assets/casa-acabamento-gesso.jpg");
       background-position: center 13%;
       background-size: cover;
       border-bottom: 1px solid rgba(255,255,255,.12);
@@ -706,6 +706,23 @@
     .reviews-source a { color: var(--blue-dark); text-underline-offset: 4px; }
     .reviews-source small { display: inline-block; margin-top: 8px; font-size: .85rem; }
     @media (max-width: 680px) { .reviews-grid { grid-template-columns: 1fr; } }
+
+    /* Foto de referência de acabamento: Max Vakhtbovych / Pexels, foto 7598130.
+       https://www.pexels.com/photo/contemporary-living-space-7598130/ */
+    .hero-image { object-position: 58% 20%; }
+    .hero::after { background: linear-gradient(90deg, rgba(3,15,28,.87) 0%, rgba(3,15,28,.80) 48%, rgba(3,15,28,.48) 100%), linear-gradient(0deg, rgba(3,15,28,.60), transparent 60%); }
+    .delivery-video-grid { align-items: start; }
+    .video-crop.gesso-stock-video { aspect-ratio: 720 / 404; }
+    .video-crop.gesso-delivery-video { aspect-ratio: 9 / 16; max-height: 580px; }
+    .video-crop.gesso-stock-video::after, .video-crop.gesso-delivery-video::after { display: none; }
+    .delivery-video-card .video-crop video { height: 100%; object-fit: contain; transform: none; }
+    @media (max-width: 640px) {
+      .hero-image { object-position: 60% 20%; }
+      .hero::after { background: linear-gradient(90deg, rgba(3,15,28,.87), rgba(3,15,28,.74)), linear-gradient(0deg, rgba(3,15,28,.55), transparent 55%); }
+      .delivery-video-grid { grid-template-columns: 1fr; gap: 20px; }
+      .delivery-video-card .video-caption { padding: 18px; font-size: 1rem; }
+      .delivery-video-card .video-caption strong { font-size: 1.1rem; }
+    }
   </style>
 </head>
 <body>
@@ -726,7 +743,7 @@
 
   <main>
     <section class="hero" id="inicio">
-      <img class="hero-image" fetchpriority="high" src="assets/fachada-gesso-recanto.webp" alt="" width="1120" height="1400">
+      <img class="hero-image" fetchpriority="high" src="assets/casa-acabamento-gesso.jpg" alt="" width="1600" height="1067">
       <div class="wrap hero-grid">
         <div>
           <p class="eyebrow">Gesso para obra • todos os tipos de gesso</p>
@@ -776,7 +793,7 @@
             <figcaption><strong>Fabricação própria</strong><span>Veja o gesso sendo produzido pela Gesso Recanto.</span></figcaption>
           </figure>
           <figure class="proof-card">
-            <video data-clean-video autoplay muted loop playsinline preload="metadata" poster="assets/caminhao-entrega.webp" aria-label="Veículo da Gesso Recanto levando gesso para uma obra">
+            <video data-clean-video autoplay muted loop playsinline preload="metadata" poster="assets/entrega-placas-gesso.webp" aria-label="Veículo da Gesso Recanto levando gesso para uma obra">
               <source src="assets/entrega-gesso-obra.mp4" type="video/mp4">
             </video>
             <figcaption><strong>Da fábrica para a obra</strong><span>Entrega própria do gesso produzido para o cliente.</span></figcaption>
@@ -795,20 +812,20 @@
         </div>
         <div class="video-grid delivery-video-grid" aria-label="Vídeos da logística própria da Gesso Recanto">
           <article class="video-card delivery-video-card">
-            <div class="video-crop">
-              <video data-clean-video autoplay muted loop playsinline preload="metadata" poster="assets/caminhao-entrega.webp" aria-label="Caminhão da Gesso Recanto carregado para entrega">
-                <source src="assets/entrega-caminhao-1.mp4" type="video/mp4">
+            <div class="video-crop gesso-stock-video">
+              <video autoplay muted loop playsinline preload="metadata" poster="assets/estoque-sacos-gesso.webp" aria-label="Empilhadeira movimentando sacos de gesso no estoque, vídeo sem áudio">
+                <source src="assets/estoque-sacos-gesso.mp4" type="video/mp4">
               </video>
             </div>
-            <div class="video-caption"><strong>Logística própria em operação</strong><span>Pedido carregado e pronto para seguir até a obra.</span></div>
+            <div class="video-caption"><strong>Gesso em estoque</strong><span>Sacos de gesso sendo movimentados no estoque.</span></div>
           </article>
           <article class="video-card delivery-video-card">
-            <div class="video-crop">
-              <video data-clean-video autoplay muted loop playsinline preload="metadata" poster="assets/caminhao-entrega.webp" aria-label="Veículo de entrega da Gesso Recanto com placas de gesso">
-                <source src="assets/entrega-caminhao-2.mp4" type="video/mp4">
+            <div class="video-crop gesso-delivery-video">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="assets/entrega-placas-gesso.webp" aria-label="Caminhão da Gesso Recanto com placas de gesso pronto para entrega">
+                <source src="assets/entrega-placas-gesso.mp4" type="video/mp4">
               </video>
             </div>
-            <div class="video-caption"><strong>Seu material a caminho</strong><span>Estrutura própria para movimentar os produtos do pedido.</span></div>
+            <div class="video-caption"><strong>Seu material a caminho</strong><span>Placas de gesso no caminhão, prontas para seguir até a obra.</span></div>
           </article>
         </div>
       </div>
