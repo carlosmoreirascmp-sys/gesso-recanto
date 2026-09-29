@@ -2,6 +2,9 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TDSTXCR8LR"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-TDSTXCR8LR',{debug_mode:new URLSearchParams(location.search).has('ga_debug')});</script>
+  <script src="analytics.js" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gesso a partir de 40 kg no peso e sob medida | Gesso Recanto</title>
   <meta name="description" content="Gesso de fábrica a partir de 40 kg no peso, placas e opções sob medida, com entrega própria para Zona Leste e São Paulo. Peça seu orçamento pelo WhatsApp.">
@@ -1027,14 +1030,6 @@
       document.querySelectorAll("[data-whatsapp]").forEach(function (link) {
         const key = link.getAttribute("data-message") || "geral";
         link.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(messages[key]);
-        link.addEventListener("click", function () {
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            event: "whatsapp_click",
-            cta_location: link.getAttribute("data-location") || "unknown",
-            lead_intent: key
-          });
-        });
       });
 
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
