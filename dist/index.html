@@ -631,6 +631,44 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
     }
+
+    /* Atualização comercial: fornecimento de gesso e entrega própria. */
+    .hero-grid { padding-block: clamp(38px, 5vw, 68px); }
+    h1 { max-width: 880px; font-size: clamp(2.45rem, 4.9vw, 4.5rem); line-height: 1.06; letter-spacing: -.045em; }
+    .hero-grid > div { max-width: 880px; }
+    .headline-follow { display: block; }
+    .structure-subtitle { display: inline-block; margin-top: 16px; color: #cde1fb; font-size: .72em; line-height: 1.2; }
+    .proof-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .proof-card:nth-child(n) { grid-column: auto; min-height: 0; margin: 0; }
+    .proof-card img { display: block; height: 340px; width: 100%; object-fit: cover; }
+    .store-proof img { object-fit: contain; background: #102338; }
+    .truck-proof img { object-position: center; }
+    .proof-card figcaption { position: static; min-height: 116px; padding: 20px; background: #102338; }
+    .proof-card strong { font-size: 1.16rem; }
+    .proof-card span { display: block; margin-top: 7px; font-size: .96rem; }
+    .structure-action { margin-top: 28px; }
+    @media (max-width: 680px) {
+      .hero-grid { padding-block: 32px; }
+      h1 { font-size: clamp(2.15rem, 8.2vw, 3rem); line-height: 1.08; }
+      .lead { font-size: 1rem; margin-bottom: 22px; }
+      .quick-proof { margin-top: 22px; font-size: .86rem; gap: 8px 14px; }
+      .proof-grid { grid-template-columns: 1fr; }
+      .proof-card img { height: 330px; }
+      .proof-card figcaption { min-height: 0; }
+      .structure-action .btn { width: 100%; }
+    }
+
+    .reviews-section { background: #fff; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
+    .review-card { display: flex; flex-direction: column; margin: 0; padding: 28px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); }
+    .review-stars { color: #976000; letter-spacing: .1em; }
+    .review-card blockquote { flex: 1; margin: 20px 0 28px; font-size: 1.18rem; line-height: 1.5; font-weight: 650; }
+    .review-card figcaption strong, .review-card figcaption span { display: block; }
+    .review-card figcaption span { margin-top: 4px; font-size: .88rem; color: var(--muted); }
+    .reviews-source { margin: 24px 0; color: var(--muted); font-size: .94rem; }
+    .reviews-source a { color: var(--blue-dark); text-underline-offset: 4px; }
+    .reviews-source small { display: inline-block; margin-top: 8px; font-size: .85rem; }
+    @media (max-width: 680px) { .reviews-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -652,20 +690,20 @@
 
   <main>
     <section class="hero" id="inicio">
-      <img class="hero-image" src="assets/fachada-gesso-recanto.webp" alt="" width="1120" height="1400">
+      <img class="hero-image" fetchpriority="high" src="assets/fachada-gesso-recanto.webp" alt="" width="1120" height="1400">
       <div class="wrap hero-grid">
         <div>
           <p class="eyebrow">Gesso para obra • todos os tipos de gesso</p>
-          <h1>Gesso no peso e sob medida para sua obra.</h1>
-          <p class="lead">Placas e todos os tipos de gesso, no peso ou sob medida, à pronta entrega. Informe o pedido e consulte a entrega com logística própria da Gesso Recanto.</p>
+          <h1>Faltou Gesso na obra? <span class="headline-follow">Chama no WhatsApp que a gente leva.</span></h1>
+          <p class="lead">Placas e gesso no peso ou sob medida, com estoque e caminhão próprios. Mande o produto, a quantidade e o CEP da obra para consultar preço, disponibilidade e prazo de entrega.</p>
           <div class="hero-actions">
-            <a class="btn btn-large" href="#" data-whatsapp data-message="geral" data-location="hero" target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
+            <a class="btn btn-large" href="#" data-whatsapp data-message="geral" data-location="hero" target="_blank" rel="noopener">Consultar preço e entrega</a>
             <span class="action-note">Atendimento direto, sem formulário.</span>
           </div>
           <ul class="quick-proof" aria-label="Diferenciais da Gesso Recanto">
             <li>À pronta entrega</li>
             <li>Logística própria</li>
-            <li>14 anos atendendo Zona Leste e SP</li>
+            <li>15 anos atendendo Zona Leste e SP</li>
           </ul>
         </div>
 
@@ -677,8 +715,8 @@
         <div class="trust-item"><strong>Pronta entrega</strong><span>placas e todos os tipos de gesso</span></div>
         <div class="trust-item"><strong>Logística própria</strong><span>estrutura pronta para o seu pedido</span></div>
         <div class="trust-item">
-          <strong class="rating-line"><span class="google-g" aria-label="Google">G</span><span>5,0</span><span class="rating-star" aria-label="cinco estrelas">★</span></strong>
-          <span>13 avaliações no Google</span>
+          <strong>15 anos</strong>
+          <span>fornecendo gessos a obras.</span>
         </div>
       </div>
     </section>
@@ -686,37 +724,25 @@
     <section class="section proof-section" id="estrutura">
       <div class="wrap">
         <div class="section-head">
-          <p class="eyebrow">Presença comercial real</p>
-          <h2>Loja, estoque, equipe e logística de verdade.</h2>
-          <p>Fotos da loja e da operação da Gesso Recanto, além de referências de aplicação e acabamento em gesso.</p>
+          <p class="eyebrow">Conheça a Gesso Recanto</p>
+          <h2>15 anos ajudando obras na Zona Leste e SP!<br><span class="structure-subtitle">Loja, estoque e caminhão próprios.</span></h2>
+          <p>Da retirada na loja à entrega na obra: veja nossa fachada, os materiais em estoque e o caminhão em operação.</p>
         </div>
         <div class="proof-grid">
-          <figure class="proof-card">
-            <img src="assets/variedade-gesso-estoque.webp" alt="Variedade de placas, sacos e produtos de gesso no estoque da Gesso Recanto" loading="eager" decoding="async">
-            <figcaption><strong>Variedade disponível na loja</strong><span>Placas, sacos e opções para diferentes etapas da obra.</span></figcaption>
+          <figure class="proof-card store-proof">
+            <img src="assets/fachada-gesso-recanto.webp" alt="Fachada azul da loja Gesso Recanto na Rua Bruno Altafim, 35, em Ferraz de Vasconcelos" width="1120" height="1400" loading="lazy" decoding="async">
+            <figcaption><strong>Loja própria em Ferraz</strong><span>Retire seu pedido na Rua Bruno Altafim, 35.</span></figcaption>
           </figure>
           <figure class="proof-card">
-            <img src="assets/logistica-propria.webp" alt="Operação logística da Gesso Recanto" loading="eager" decoding="async">
-            <figcaption><strong>Logística própria</strong><span>Estrutura preparada para separar e movimentar seu pedido.</span></figcaption>
+            <img src="assets/variedade-gesso-estoque.webp" alt="Estoque da Gesso Recanto com placas, sacos de gesso e materiais para obra" loading="lazy" decoding="async">
+            <figcaption><strong>Estoque próprio</strong><span>Consulte os materiais e a quantidade para sua obra.</span></figcaption>
           </figure>
-          <figure class="proof-card">
-            <img src="assets/fachada-gesso-recanto.webp" alt="Fachada da loja Gesso Recanto em Ferraz de Vasconcelos" loading="eager" decoding="async">
-            <figcaption><strong>Loja física em Ferraz</strong><span>Rua Bruno Altafim, 35 — Sítio Paredão.</span></figcaption>
-          </figure>
-          <figure class="proof-card team-work-card">
-            <img src="assets/obra-acabamento.webp" alt="Profissional trabalhando em acabamento de gesso na obra" loading="eager" decoding="async">
-            <figcaption><strong>Equipe presente na operação</strong><span>Trabalho em obra e atendimento direto para entender o pedido.</span></figcaption>
-          </figure>
-          <figure class="proof-card product-range-card">
-            <img src="assets/todos-tipos-gesso.webp" alt="Mostruário com diferentes modelos e acabamentos em gesso" loading="eager" decoding="async">
-            <figcaption><strong>Todos os tipos de gesso</strong><span>Opções para diferentes etapas e acabamentos da obra.</span></figcaption>
-          </figure>
-          <figure class="proof-card">
-            <!-- Foto de referência: apryan widodo / Unsplash, uso permitido pela Unsplash License. -->
-            <img src="assets/acabamento-gesso-unsplash.webp" alt="Referência de teto decorado com molduras e iluminação embutida" loading="eager" decoding="async">
-            <figcaption><strong>Acabamento que valoriza o ambiente</strong><span>Referência de teto em gesso com detalhes e iluminação.</span></figcaption>
+          <figure class="proof-card truck-proof">
+            <img src="assets/caminhao-entrega.webp" alt="Caminhão da Gesso Recanto carregado com materiais para entrega" width="412" height="555" loading="lazy" decoding="async">
+            <figcaption><strong>Caminhão próprio</strong><span>Envie seu CEP e consulte frete e prazo.</span></figcaption>
           </figure>
         </div>
+        <div class="structure-action"><a class="btn btn-large" href="#" data-whatsapp data-message="geral" data-location="structure" target="_blank" rel="noopener">Cotar material para minha obra</a></div>
       </div>
     </section>
 
@@ -724,13 +750,13 @@
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Logística própria em movimento</p>
-          <h2>Veja de perto. Aguardamos seu pedido:</h2>
+          <h2>Seu gesso, da loja até a obra.</h2>
           <p>Do carregamento à saída para entrega, a estrutura da Gesso Recanto está pronta para atender sua obra.</p>
         </div>
         <div class="video-grid delivery-video-grid" aria-label="Vídeos da logística própria da Gesso Recanto">
           <article class="video-card delivery-video-card">
             <div class="video-crop">
-              <video data-clean-video autoplay muted loop playsinline preload="metadata" poster="assets/logistica-propria.webp" aria-label="Caminhão da Gesso Recanto carregado para entrega">
+              <video data-clean-video autoplay muted loop playsinline preload="metadata" poster="assets/caminhao-entrega.webp" aria-label="Caminhão da Gesso Recanto carregado para entrega">
                 <source src="assets/entrega-caminhao-1.mp4" type="video/mp4">
               </video>
             </div>
@@ -738,7 +764,7 @@
           </article>
           <article class="video-card delivery-video-card">
             <div class="video-crop">
-              <video data-clean-video autoplay muted loop playsinline preload="metadata" poster="assets/estoque-placas.webp" aria-label="Veículo de entrega da Gesso Recanto com placas de gesso">
+              <video data-clean-video autoplay muted loop playsinline preload="metadata" poster="assets/caminhao-entrega.webp" aria-label="Veículo de entrega da Gesso Recanto com placas de gesso">
                 <source src="assets/entrega-caminhao-2.mp4" type="video/mp4">
               </video>
             </div>
@@ -758,10 +784,39 @@
             <a class="btn btn-large" href="#" data-whatsapp data-message="geral" data-location="delivery_intro" target="_blank" rel="noopener">Consultar produto e entrega</a>
           </div>
           <figure class="variety-card">
-            <img src="assets/estoque-placas.webp" alt="Placas de gesso à pronta entrega no estoque da Gesso Recanto" loading="eager" decoding="async">
+            <img src="assets/estoque-placas.webp" alt="Placas de gesso à pronta entrega no estoque da Gesso Recanto" loading="lazy" decoding="async">
             <figcaption><strong>Placas à pronta entrega</strong><span>Estoque próprio para atender pedidos de obra.</span></figcaption>
           </figure>
         </div>
+      </div>
+    </section>
+
+    <section class="section reviews-section" id="avaliacoes" aria-labelledby="reviews-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Avaliações no Google</p>
+          <h2 id="reviews-title">Quem compra na Gesso Recanto conta.</h2>
+          <p><strong>5,0 de 5</strong> <span class="review-stars" aria-label="cinco estrelas">★★★★★</span> · 15 avaliações no Google.</p>
+        </div>
+        <div class="reviews-grid">
+          <figure class="review-card">
+            <div class="review-stars" aria-label="Avaliação de cinco estrelas">★★★★★</div>
+            <blockquote>“Melhor loja de gesso na região<br>Preço atendimento e qualidade”</blockquote>
+            <figcaption><strong>Miguel Rodrigues</strong><span>Avaliação publicada no Google</span></figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="review-stars" aria-label="Avaliação de cinco estrelas">★★★★★</div>
+            <blockquote>“Gesso recanto compro a mais de 10 anos”</blockquote>
+            <figcaption><strong>Carlos Alexandre</strong><span>Trecho de avaliação publicada no Google</span></figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="review-stars" aria-label="Avaliação de cinco estrelas">★★★★★</div>
+            <blockquote>“Ótimo atendimento e melhor qualidade nós produtos”</blockquote>
+            <figcaption><strong>Luan Rodrigues</strong><span>Avaliação publicada no Google</span></figcaption>
+          </figure>
+        </div>
+        <p class="reviews-source"><a href="https://www.google.com/maps/place/Gesso+Recanto/@-23.5384542,-46.3639775,17z/data=!4m8!3m7!1s0x94ce65f00f2b53d7:0xfc7ed846e4487615!8m2!3d-23.5384542!4d-46.3639775!9m1!1b1!16s%2Fg%2F11j7dn3bgg?entry=ttu&amp;g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Ver avaliações no perfil da Gesso Recanto</a><br><small>Depoimentos com a redação original. Nota e quantidade consultadas em 28/09/2026.</small></p>
+        <a class="btn btn-large" href="#" data-whatsapp data-message="geral" data-location="reviews" target="_blank" rel="noopener">Pedir meu orçamento no WhatsApp</a>
       </div>
     </section>
 
@@ -770,7 +825,7 @@
         <div class="section-head">
           <p class="eyebrow">Escolha como quer comprar</p>
           <h2>Placas e qualquer tipo de gesso para a sua obra.</h2>
-          <p>Sem catálogo infinito e sem conversa genérica. Selecione a opção certa e já abra o WhatsApp com a mensagem pronta para completar.</p>
+          <p>Escolha o material e mande sua lista, quantidade ou medidas. Nossa equipe confirma o preço e a entrega para o seu CEP.</p>
         </div>
         <div class="offer-grid">
           <article class="offer-card">
