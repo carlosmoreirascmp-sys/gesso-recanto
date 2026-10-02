@@ -2,5 +2,25 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "outputDirectory": "dist",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "gessos.gessorecantosp.com.br" }],
+      "destination": "https://gessorecantosp.com.br/gesso",
+      "permanent": true
+    },
+    {
+      "source": "/index",
+      "has": [{ "type": "host", "value": "gessos.gessorecantosp.com.br" }],
+      "destination": "https://gessorecantosp.com.br/gesso",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "gessos.gessorecantosp.com.br" }],
+      "destination": "https://gessorecantosp.com.br/gesso/:path*",
+      "permanent": true
+    }
+  ]
 }
